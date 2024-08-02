@@ -1,0 +1,53 @@
+<html>
+    <body>
+        <h1> Category Management</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Save">
+        </form>
+        <form>
+            <lable>Name</label>
+            <input/>
+            <br>
+            
+            <label>Name Container</label>
+            <input/></form>
+            <button>Search</button>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                    </tr>
+
+                    {% for category in page %}
+                    <tr>
+                        <td>{{category.id}}</td>
+                        <td>{{category.name}}</td>
+                        <td><button>View</button></td>
+                    </tr>    
+                    {% endfor %}
+                     </table>
+
+                     <div class="pagination">
+                        {% if page.has_previous %}
+                            <button><a href="?page=1">First &lanquo;</a></button>
+                            <button><a href="?page={{ page.previous_page_number }}">Previous</a></button>
+                        {% endif %}  
+                        
+                        Page {{ page.number }} of {{ page.paginator.num_pages }}
+                        
+                        {% if page.has_next %}
+                            <button><a href="?page={{ page.next_page_number }}">Next</a></button>
+                            <button><a href="?page={{ page.paginator.num_pages }}">Last &raquo;</a></button>
+                        {% endif %}  
+
+                     <button>Previous</button>
+                    <label>1</label>
+                    <button>Next</button>
+            </body>
+            </html>
+        </body>
+    </label>
+</html>

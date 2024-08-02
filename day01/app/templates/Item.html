@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item Management</title>
+</head>
+<body>
+    <h1>Item Management</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+    
+    <label>Name Container</label>
+    <input type="text" name="search"/>
+    <button>Search</button>
+    
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Unit</th>
+            <th>Action</th>
+        </tr>
+        {% for item in page %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.image }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.unit }}</td>
+            <td><button>View</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <button>Previous</button>
+    <label>1</label>
+    <button>Next</button>
+</body>
+</html>

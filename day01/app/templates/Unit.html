@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h1>Unit Management</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Save">
+        </form>
+        
+        <label>Name:</label>
+        <input/>
+        <br>
+        
+        <label>Name Container</label>
+        <input/>
+        <button>Search</button>
+        
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for unit in uts %}
+            <tr>
+                <td>{{ unit.id }}</td>
+                <td>{{ unit.name }}</td>
+                <td><button>View</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button>Previous</button>
+        <label>1</label>
+        <button>Next</button>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h1> Employee Management</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Save">
+        </form>
+        
+        <label>Name Contains</label>
+        <input/>
+        <button>Search</button>
+            
+        <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for employee in employs %}
+                    <tr>
+                        <td>{{employee.id}}</td>
+                        <td>{{employee.name}}</td>
+					    <td><button>View</button></td>
+                    </tr>    
+                {% endfor %}
+                     </table>
+                     <button>Previous</button>
+                    <label>1</label>
+                    <button>Next</button>
+            </body>
+            </html>
+        </body>
+    </label>
+</html>
